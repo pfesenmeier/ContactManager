@@ -30,8 +30,6 @@ public class ContactManagerAuthorizationHandler : AuthorizationHandler<Operation
 
         return Task.CompletedTask;
 
-
-
     }
 
 

@@ -10,9 +10,9 @@ namespace ContactManager.Pages.Contacts
 {
     public class IndexModel : DI_BasePageModel
     {
-        public IndexModel(ApplicationDbContext context, IAuthorizationService authorizationService, UserManager<IdentityUser> userManager): base(context, authorizationService, userManager)
+        public IndexModel(ApplicationDbContext context, IAuthorizationService authorizationService, UserManager<IdentityUser> userManager) : base(context, authorizationService, userManager)
         {
-        } 
+        }
 
         public IList<Contact> Contact { get; set; } = default!;
 
@@ -26,7 +26,7 @@ namespace ContactManager.Pages.Contacts
 
             if (!isAuthorized)
             {
-              contacts = contacts.Where(c => c.Status == ContactStatus.Approved || c.OwnerId == currentUserId);
+                contacts = contacts.Where(c => c.Status == ContactStatus.Approved || c.OwnerId == currentUserId);
             }
 
             Contact = await contacts.ToListAsync();
